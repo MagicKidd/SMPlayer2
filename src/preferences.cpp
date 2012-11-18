@@ -71,7 +71,6 @@ void Preferences::reset()
     vo = "";
     ao = "";
 
-    use_screenshot = false;
     screenshot_directory = "";
 
     if (QFile::exists(Paths::configPath() + "/screenshots")) {
@@ -177,18 +176,13 @@ void Preferences::reset()
        ********* */
 
     sub_use_mplayer2_defaults = true;
-    font_file = "";
-    font_name = "";
-    use_fontconfig = false;
     sub_encoding = "";
     use_enca = false;
     enca_lang = QString(QLocale::system().name()).section("_", 0, 0);
-    font_autoscale = 1;
     subfuzziness = 1;
     autoload_sub = true;
     prefer_external = false;
 
-    use_ass_subtitles = true;
     ass_line_spacing = 0;
 
     use_forced_subs_only = false;
@@ -197,17 +191,12 @@ void Preferences::reset()
 
     subtitles_on_screenshots = false;
 
-    fast_load_sub = true;
-
     // ASS styles
     // Nothing to do, default values are given in
     // AssStyles constructor
 
     force_ass_styles = false;
     user_forced_ass_style.clear();
-
-    freetype_support = true;
-
 
     /* ********
        Advanced
@@ -365,7 +354,6 @@ void Preferences::reset()
        Initial values
        ************** */
 
-    initial_sub_scale = 5;
     initial_sub_scale_ass = 1;
     initial_volume = 40;
     initial_contrast = 0;
@@ -377,7 +365,6 @@ void Preferences::reset()
     initial_audio_equalizer << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0 << 0;
 
     initial_zoom_factor = 1.0;
-    initial_sub_pos = 100; // 100%
 
     initial_volnorm = false;
 
@@ -452,7 +439,6 @@ void Preferences::save()
     set->setValue("driver/vo", vo);
     set->setValue("driver/audio_output", ao);
 
-    set->setValue("use_screenshot", use_screenshot);
     set->setValue("screenshot_directory", screenshot_directory);
 
     set->setValue("dont_remember_media_settings", dont_remember_media_settings);
@@ -558,19 +544,13 @@ void Preferences::save()
 
     set->setValue("sub_use_mplayer2_defaults", sub_use_mplayer2_defaults);
 
-    set->setValue("font_file", font_file);
-    set->setValue("font_name", font_name);
-
-    set->setValue("use_fontconfig", use_fontconfig);
     set->setValue("sub_encoding", sub_encoding);
     set->setValue("use_enca", use_enca);
     set->setValue("enca_lang", enca_lang);
-    set->setValue("font_autoscale", font_autoscale);
     set->setValue("subfuzziness", subfuzziness);
     set->setValue("autoload_sub", autoload_sub);
     set->setValue("prefer_external", prefer_external);
 
-    set->setValue("use_ass_subtitles", use_ass_subtitles);
     set->setValue("ass_line_spacing", ass_line_spacing);
     set->setValue("use_forced_subs_only", use_forced_subs_only);
 
@@ -578,14 +558,10 @@ void Preferences::save()
 
     set->setValue("subtitles_on_screenshots", subtitles_on_screenshots);
 
-    set->setValue("fast_load_sub", fast_load_sub);
-
     // ASS styles
     ass_styles.save(set);
     set->setValue("force_ass_styles", force_ass_styles);
     set->setValue("user_forced_ass_style", user_forced_ass_style);
-
-    set->setValue("freetype_support", freetype_support);
 
     set->endGroup(); // subtitles
 
@@ -745,7 +721,6 @@ void Preferences::save()
 
     set->beginGroup("defaults");
 
-    set->setValue("initial_sub_scale", initial_sub_scale);
     set->setValue("initial_sub_scale_ass", initial_sub_scale_ass);
     set->setValue("initial_volume", initial_volume);
     set->setValue("initial_contrast", initial_contrast);
@@ -757,7 +732,6 @@ void Preferences::save()
     set->setValue("initial_audio_equalizer", initial_audio_equalizer);
 
     set->setValue("initial_zoom_factor", initial_zoom_factor);
-    set->setValue("initial_sub_pos", initial_sub_pos);
 
     set->setValue("initial_volnorm", initial_volnorm);
 
@@ -837,7 +811,6 @@ void Preferences::load()
     vo = set->value("driver/vo", vo).toString();
     ao = set->value("driver/audio_output", ao).toString();
 
-    use_screenshot = set->value("use_screenshot", use_screenshot).toBool();
     screenshot_directory = set->value("screenshot_directory", screenshot_directory).toString();
 
     dont_remember_media_settings = set->value("dont_remember_media_settings", dont_remember_media_settings).toBool();
@@ -943,19 +916,13 @@ void Preferences::load()
 
     sub_use_mplayer2_defaults = set->value("sub_use_mplayer2_defaults", sub_use_mplayer2_defaults).toBool();
 
-    font_file = set->value("font_file", font_file).toString();
-    font_name = set->value("font_name", font_name).toString();
-
-    use_fontconfig = set->value("use_fontconfig", use_fontconfig).toBool();
     sub_encoding = set->value("sub_encoding", sub_encoding).toString();
     use_enca = set->value("use_enca", use_enca).toBool();
     enca_lang = set->value("enca_lang", enca_lang).toString();
-    font_autoscale = set->value("font_autoscale", font_autoscale).toInt();
     subfuzziness = set->value("subfuzziness", subfuzziness).toInt();
     autoload_sub = set->value("autoload_sub", autoload_sub).toBool();
     prefer_external = set->value("prefer_external", prefer_external).toBool();
 
-    use_ass_subtitles = set->value("use_ass_subtitles", use_ass_subtitles).toBool();
     ass_line_spacing = set->value("ass_line_spacing", ass_line_spacing).toInt();
 
     use_forced_subs_only = set->value("use_forced_subs_only", use_forced_subs_only).toBool();
@@ -964,14 +931,10 @@ void Preferences::load()
 
     subtitles_on_screenshots = set->value("subtitles_on_screenshots", subtitles_on_screenshots).toBool();
 
-    fast_load_sub = set->value("fast_load_sub", fast_load_sub).toBool();
-
     // ASS styles
     ass_styles.load(set);
     force_ass_styles = set->value("force_ass_styles", force_ass_styles).toBool();
     user_forced_ass_style = set->value("user_forced_ass_style", user_forced_ass_style).toString();
-
-    freetype_support = set->value("freetype_support", freetype_support).toBool();
 
     set->endGroup(); // subtitles
 
@@ -1138,7 +1101,6 @@ void Preferences::load()
 
     set->beginGroup("defaults");
 
-    initial_sub_scale = set->value("initial_sub_scale", initial_sub_scale).toDouble();
     initial_sub_scale_ass = set->value("initial_sub_scale_ass", initial_sub_scale_ass).toDouble();
     initial_volume = set->value("initial_volume", initial_volume).toInt();
     initial_contrast = set->value("initial_contrast", initial_contrast).toInt();
@@ -1150,7 +1112,6 @@ void Preferences::load()
     initial_audio_equalizer = set->value("initial_audio_equalizer", initial_audio_equalizer).toList();
 
     initial_zoom_factor = set->value("initial_zoom_factor", initial_zoom_factor).toDouble();
-    initial_sub_pos = set->value("initial_sub_pos", initial_sub_pos).toInt();
 
     initial_volnorm = set->value("initial_volnorm", initial_volnorm).toBool();
 

@@ -213,9 +213,6 @@ public slots:
     void incAudioDelay();
     void decAudioDelay();
 
-    void incSubPos();
-    void decSubPos();
-
     void changeSubScale(double value);
     void incSubScale();
     void decSubScale();
@@ -295,7 +292,6 @@ public slots:
     void toggleDeinterlace();
 
     void changeSubUseMplayer2Defaults(bool);
-    void changeUseAss(bool);
     void toggleForcedSubsOnly(bool);
 
     void changeClosedCaptionChannel(int);

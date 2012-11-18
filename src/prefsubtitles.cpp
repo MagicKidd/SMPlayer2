@@ -32,11 +32,6 @@ PrefSubtitles::PrefSubtitles(QWidget *parent, Qt::WindowFlags f)
 {
     setupUi(this);
 
-    ttf_font_edit->setDialogType(FileChooser::GetFileName);
-#ifdef Q_OS_WIN
-    ttf_font_edit->setOptions(QFileDialog::DontUseNativeDialog);
-#endif
-
     connect(style_border_style_combo, SIGNAL(currentIndexChanged(int)),
             this, SLOT(checkBorderStyleCombo(int)));
 
@@ -60,12 +55,10 @@ QPixmap PrefSubtitles::sectionIcon()
 
 void PrefSubtitles::retranslateStrings()
 {
-    int font_autoscale_item = font_autoscale_combo->currentIndex();
     int font_autoload_item = font_autoload_combo->currentIndex();
 
     retranslateUi(this);
 
-    font_autoscale_combo->setCurrentIndex(font_autoscale_item);
     font_autoload_combo->setCurrentIndex(font_autoload_item);
 
     // Encodings combo
@@ -96,11 +89,6 @@ void PrefSubtitles::retranslateStrings()
     setFontEncoding(current_encoding);
     setEncaLang(current_enca_lang);
 
-    sub_pos_label->setNum(sub_pos_slider->value());
-
-    ttf_font_edit->setCaption(tr("Choose a ttf file"));
-    ttf_font_edit->setFilter(tr("Truetype Fonts") + " (*.ttf)");
-
     // Ass styles
     int alignment_item = style_alignment_combo->currentIndex();
     style_alignment_combo->clear();
@@ -128,11 +116,6 @@ void PrefSubtitles::retranslateStrings()
 void PrefSubtitles::setData(Preferences *pref)
 {
     setUseMplayer2Defaults(pref->sub_use_mplayer2_defaults);
-    setFontName(pref->font_name);
-    setFontFile(pref->font_file);
-    setUseFontconfig(pref->use_fontconfig);
-    setFontAutoscale(pref->font_autoscale);
-    setFontTextscale(pref->initial_sub_scale);
     setAssFontScale(pref->initial_sub_scale_ass);
     setAutoloadSub(pref->autoload_sub);
     setPreferExternal(pref->prefer_external);
@@ -140,11 +123,8 @@ void PrefSubtitles::setData(Preferences *pref)
     setFontEncoding(pref->sub_encoding);
     setUseEnca(pref->use_enca);
     setEncaLang(pref->enca_lang);
-    setUseFontASS(pref->use_ass_subtitles);
     setAssLineSpacing(pref->ass_line_spacing);
-    setSubPos(pref->initial_sub_pos);
     setSubtitlesOnScreenshots(pref->subtitles_on_screenshots);
-    setFreetypeSupport(pref->freetype_support);
 
     // Load ass styles
     style_font_combo->setCurrentText(pref->ass_styles.fontname);
@@ -172,11 +152,6 @@ void PrefSubtitles::getData(Preferences *pref)
     requires_restart = false;
 
     TEST_AND_SET(pref->sub_use_mplayer2_defaults, useMplayer2Defaults());
-    TEST_AND_SET(pref->font_name, fontName());
-    TEST_AND_SET(pref->font_file, fontFile());
-    TEST_AND_SET(pref->use_fontconfig, useFontconfig());
-    TEST_AND_SET(pref->font_autoscale, fontAutoscale());
-    pref->initial_sub_scale = fontTextscale();
     pref->initial_sub_scale_ass = assFontScale();
     TEST_AND_SET(pref->autoload_sub, autoloadSub());
     TEST_AND_SET(pref->prefer_external, preferExternal());
@@ -184,11 +159,8 @@ void PrefSubtitles::getData(Preferences *pref)
     TEST_AND_SET(pref->sub_encoding, fontEncoding());
     TEST_AND_SET(pref->use_enca, useEnca());
     TEST_AND_SET(pref->enca_lang, encaLang());
-    TEST_AND_SET(pref->use_ass_subtitles, useFontASS());
     TEST_AND_SET(pref->ass_line_spacing, assLineSpacing());
-    pref->initial_sub_pos = subPos();
     TEST_AND_SET(pref->subtitles_on_screenshots, subtitlesOnScreenshots());
-    TEST_AND_SET(pref->freetype_support, freetypeSupport());
 
     // Save ass styles
     TEST_AND_SET(pref->ass_styles.fontname, style_font_combo->currentText());
@@ -230,58 +202,6 @@ void PrefSubtitles::setUseMplayer2Defaults(bool b)
 bool PrefSubtitles::useMplayer2Defaults()
 {
     return use_mplayer2_defaults_check->isChecked();
-}
-
-void PrefSubtitles::setFontName(QString font_name)
-{
-    fontCombo->setCurrentText(font_name);
-}
-
-QString PrefSubtitles::fontName()
-{
-    return fontCombo->currentText();
-}
-
-void PrefSubtitles::setFontFile(QString font_file)
-{
-    ttf_font_edit->setText(font_file);
-}
-
-QString PrefSubtitles::fontFile()
-{
-    return ttf_font_edit->text();
-}
-
-
-void PrefSubtitles::setUseFontconfig(bool b)
-{
-    system_font_button->setChecked(b);
-    ttf_font_button->setChecked(!b);
-}
-
-bool PrefSubtitles::useFontconfig()
-{
-    return system_font_button->isChecked();
-}
-
-void PrefSubtitles::setFontAutoscale(int n)
-{
-    font_autoscale_combo->setCurrentIndex(n);
-}
-
-int PrefSubtitles::fontAutoscale()
-{
-    return font_autoscale_combo->currentIndex();
-}
-
-void PrefSubtitles::setFontTextscale(double n)
-{
-    font_text_scale_spin->setValue(n);
-}
-
-double PrefSubtitles::fontTextscale()
-{
-    return font_text_scale_spin->value();
 }
 
 void PrefSubtitles::setAssFontScale(double n)
@@ -348,27 +268,6 @@ bool PrefSubtitles::useEnca()
     return use_enca_check->isChecked();
 }
 
-void PrefSubtitles::setSubPos(int pos)
-{
-    sub_pos_slider->setValue(pos);
-}
-
-int PrefSubtitles::subPos()
-{
-    return sub_pos_slider->value();
-}
-
-void PrefSubtitles::setUseFontASS(bool v)
-{
-    ass_subs_button->setChecked(v);
-    normal_subs_button->setChecked(!v);
-}
-
-bool PrefSubtitles::useFontASS()
-{
-    return ass_subs_button->isChecked();
-}
-
 void PrefSubtitles::setFontFuzziness(int n)
 {
     font_autoload_combo->setCurrentIndex(n);
@@ -407,14 +306,6 @@ void PrefSubtitles::setForceAssStyles(bool b)
 bool PrefSubtitles::forceAssStyles()
 {
     return force_ass_styles->isChecked();
-}
-
-void PrefSubtitles::on_ass_subs_button_toggled(bool b)
-{
-    if (b)
-        stackedWidget->setCurrentIndex(1);
-    else
-        stackedWidget->setCurrentIndex(0);
 }
 
 void PrefSubtitles::on_ass_customize_button_clicked()
@@ -458,26 +349,6 @@ void PrefSubtitles::on_ass_customize_button_clicked()
     }
 }
 
-void PrefSubtitles::setFreetypeSupport(bool b)
-{
-    freetype_check->setChecked(b);
-}
-
-bool PrefSubtitles::freetypeSupport()
-{
-    return freetype_check->isChecked();
-}
-
-void PrefSubtitles::on_freetype_check_toggled(bool b)
-{
-    qDebug("PrefSubtitles:on_freetype_check_toggled: %d", b);
-
-    if (!b) {
-        ass_subs_button->setChecked(false);
-        normal_subs_button->setChecked(true);
-    }
-}
-
 void PrefSubtitles::createHelp()
 {
     clearHelp();
@@ -515,56 +386,13 @@ void PrefSubtitles::createHelp()
 
     addSectionTitle(tr("Font"));
 
-    setWhatsThis(freetype_check, tr("Freetype support"),
-                 tr("You should normally not disable this option. Do it only if your "
-                    "mplayer2 is compiled without freetype support. "
-                    "<b>Disabling this option could make that subtitles won't work "
-                    "at all!</b>"));
-
     setWhatsThis(use_mplayer2_defaults_check, tr("Use mplayer2 defaults"),
                  tr("This prevents SMPlayer2 from overriding most subtitle-related "
                     "options."));
 
-    setWhatsThis(normal_subs_button, tr("Enable normal subtitles"),
-                 tr("Click this button to select the normal/traditional subtitles. "
-                    "This kind of subtitles can only display white subtitles."));
-
-    setWhatsThis(ass_subs_button, tr("Enable SSA/ASS subtitles"),
-                 tr("Click this button to enable the new SSA/ASS library. "
-                    "This allows to display subtitles with multiple colors, fonts..."));
-
-    addSectionTitle(tr("Normal subtitles"));
-
-    setWhatsThis(ttf_font_edit, tr("TTF font"),
-                 tr("Here you can select a ttf font to be used for the subtitles. "
-                    "Usually you'll find a lot of ttf fonts in %1")
-#ifdef Q_OS_WIN
-                 .arg("<i>C:\\Windows\\Fonts\\</i>")
-#else
-                 .arg("<i>/usr/X11R6/lib/X11/fonts/truetype/</i>")
-#endif
-                );
-
-    setWhatsThis(fontCombo, tr("System font"),
-                 tr("Here you can select a system font to be used for the subtitles "
-                    "and OSD. <b>Note:</b> requires a mplayer2 with fontconfig support."));
-
-    setWhatsThis(font_autoscale_combo, tr("Autoscale"),
-                 tr("Select the subtitle autoscaling method."));
-
     QString scale_note = tr("This option does NOT change the size of the "
                             "subtitles in the current video. To do so, use the options "
                             "<i>Size+</i> and <i>Size-</i> in the subtitles menu.");
-
-    setWhatsThis(font_text_scale_spin, tr("Default scale"),
-                 tr("This option specifies the default font scale for normal "
-                    "subtitles which will be used for new opened files.") + "<br>" +
-                 scale_note);
-
-    setWhatsThis(sub_pos_slider, tr("Subtitle position"),
-                 tr("This option specifies the position of the subtitles over the "
-                    "video window. <i>100</i> means the bottom, while <i>0</i> means "
-                    "the top."));
 
     addSectionTitle(tr("SSA/ASS subtitles"));
 

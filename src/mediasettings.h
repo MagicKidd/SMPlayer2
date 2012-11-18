@@ -91,9 +91,6 @@ public:
     int sub_delay;
     int audio_delay;
 
-    // Subtitles position (0-100)
-    int sub_pos;
-    double sub_scale;
     double sub_scale_ass;
 
     int closed_caption_channel; // 0 = disabled

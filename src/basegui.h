@@ -404,14 +404,11 @@ protected:
     MyAction *decSubDelayAct;
     MyAction *incSubDelayAct;
     MyAction *subDelayAct;  // Ask for delay
-    MyAction *decSubPosAct;
-    MyAction *incSubPosAct;
     MyAction *incSubStepAct;
     MyAction *decSubStepAct;
     MyAction *incSubScaleAct;
     MyAction *decSubScaleAct;
     MyAction *subUseMplayer2DefaultsAct;
-    MyAction *useAssAct;
     MyAction *useForcedSubsOnlyAct;
     MyAction *subVisibilityAct;
     MyAction *showFindSubtitlesDialogAct;

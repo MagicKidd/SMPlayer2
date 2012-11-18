@@ -485,7 +485,7 @@ void Core::loadSub(const QString &sub)
 
         QFileInfo fi(sub);
 
-        if ((pref->fast_load_sub) && (fi.suffix().toLower() != "idx")) {
+        if (fi.suffix().toLower() != "idx") {
             QString sub_file = sub;
             tellmp("sub_load \"" + sub_file + "\"");
         } else {
@@ -1291,8 +1291,7 @@ void Core::startMplayer(QString file, double seek)
     qDebug("Core::startMplayer: url_is_playlist: %d", url_is_playlist);
 
 
-    bool screenshot_enabled = ((pref->use_screenshot) &&
-                               (!pref->screenshot_directory.isEmpty()) &&
+    bool screenshot_enabled = ((!pref->screenshot_directory.isEmpty()) &&
                                (QFileInfo(pref->screenshot_directory).isDir()));
 
     proc->clearArguments();
@@ -1547,80 +1546,50 @@ void Core::startMplayer(QString file, double seek)
 
     // Subtitles fonts
     if (!pref->sub_use_mplayer2_defaults) {
-        if ((pref->use_ass_subtitles) && (pref->freetype_support)) {
-            // ASS:
-            proc->addArgument("-ass");
-            proc->addArgument("-embeddedfonts");
+        proc->addArgument("-ass");
+        proc->addArgument("-embeddedfonts");
 
-            proc->addArgument("-ass-line-spacing");
-            proc->addArgument(QString::number(pref->ass_line_spacing));
+        proc->addArgument("-ass-line-spacing");
+        proc->addArgument(QString::number(pref->ass_line_spacing));
 
-            proc->addArgument("-ass-font-scale");
-            proc->addArgument(QString::number(mset.sub_scale_ass));
+        proc->addArgument("-ass-font-scale");
+        proc->addArgument(QString::number(mset.sub_scale_ass));
 
-            if (!pref->force_ass_styles) {
-                // Load the styles.ass file
-                if (!QFile::exists(Paths::subtitleStyleFile())) {
-                    // If file doesn't exist, create it
-                    pref->ass_styles.exportStyles(Paths::subtitleStyleFile());
-                }
+        if (!pref->force_ass_styles) {
+            // Load the styles.ass file
+            if (!QFile::exists(Paths::subtitleStyleFile())) {
+                // If file doesn't exist, create it
+                pref->ass_styles.exportStyles(Paths::subtitleStyleFile());
+            }
 
-                if (QFile::exists(Paths::subtitleStyleFile())) {
-                    proc->addArgument("-ass-styles");
-                    proc->addArgument(Paths::subtitleStyleFile());
-                } else {
-                    qWarning("Core::startMplayer: '%s' doesn't exist", Paths::subtitleStyleFile().toUtf8().constData());
-                }
+            if (QFile::exists(Paths::subtitleStyleFile())) {
+                proc->addArgument("-ass-styles");
+                proc->addArgument(Paths::subtitleStyleFile());
             } else {
-                // Force styles for ass subtitles too
-                proc->addArgument("-ass-force-style");
-
-                if (!pref->user_forced_ass_style.isEmpty()) {
-                    proc->addArgument(pref->user_forced_ass_style);
-                } else {
-                    proc->addArgument(pref->ass_styles.toString());
-                }
-            }
-
-            // Use the same font for OSD
-            if (!pref->ass_styles.fontname.isEmpty()) {
-                proc->addArgument("-fontconfig");
-                proc->addArgument("-font");
-                proc->addArgument(pref->ass_styles.fontname);
-            }
-
-            // Set the size of OSD
-            if (pref->freetype_support) {
-                proc->addArgument("-subfont-autoscale");
-                proc->addArgument("0");
-                proc->addArgument("-subfont-osd-scale");
-                proc->addArgument(QString::number(pref->ass_styles.fontsize));
-                proc->addArgument("-subfont-text-scale"); // Old versions (like 1.0rc2) need this
-                proc->addArgument(QString::number(pref->ass_styles.fontsize));
+                qWarning("Core::startMplayer: '%s' doesn't exist", Paths::subtitleStyleFile().toUtf8().constData());
             }
         } else {
-            // NO ASS:
-            if (pref->freetype_support) proc->addArgument("-noass");
+            // Force styles for ass subtitles too
+            proc->addArgument("-ass-force-style");
 
-            if ((pref->use_fontconfig) && (!pref->font_name.isEmpty())) {
-                proc->addArgument("-fontconfig");
-                proc->addArgument("-font");
-                proc->addArgument(pref->font_name);
-            }
-
-            if ((!pref->use_fontconfig) && (!pref->font_file.isEmpty())) {
-                proc->addArgument("-font");
-                proc->addArgument(pref->font_file);
-            }
-
-            if (pref->freetype_support) {
-                proc->addArgument("-subfont-autoscale");
-                proc->addArgument(QString::number(pref->font_autoscale));
-
-                proc->addArgument("-subfont-text-scale");
-                proc->addArgument(QString::number(mset.sub_scale));
+            if (!pref->user_forced_ass_style.isEmpty()) {
+                proc->addArgument(pref->user_forced_ass_style);
+            } else {
+                proc->addArgument(pref->ass_styles.toString());
             }
         }
+
+        // Use the same font for OSD
+        if (!pref->ass_styles.fontname.isEmpty()) {
+            proc->addArgument("-font");
+            proc->addArgument(pref->ass_styles.fontname);
+        }
+
+        // Set the size of OSD
+        proc->addArgument("-subfont-autoscale");
+        proc->addArgument("0");
+        proc->addArgument("-subfont-osd-scale");
+        proc->addArgument(QString::number(pref->ass_styles.fontsize));
     }
 
     // Subtitle encoding
@@ -1709,9 +1678,6 @@ void Core::startMplayer(QString file, double seek)
         proc->addArgument("-audiofile");
         proc->addArgument(mset.external_audio);
     }
-
-    proc->addArgument("-subpos");
-    proc->addArgument(QString::number(mset.sub_pos));
 
     if (mset.audio_delay != 0) {
         proc->addArgument("-delay");
@@ -1994,14 +1960,9 @@ void Core::startMplayer(QString file, double seek)
     }
 
     // Filters for subtitles on screenshots
-    if ((screenshot_enabled) && (pref->subtitles_on_screenshots)) {
-        if (pref->use_ass_subtitles) {
-            proc->addArgument("-vf-add");
-            proc->addArgument("ass");
-        } else {
-            proc->addArgument("-vf-add");
-            proc->addArgument("expand=osd=1");
-        }
+    if (pref->subtitles_on_screenshots) {
+        proc->addArgument("-vf-add");
+        proc->addArgument("ass");
     }
 
     // Rotate
@@ -2025,7 +1986,7 @@ void Core::startMplayer(QString file, double seek)
     }
 
     // Screenshots
-    if (screenshot_enabled)	{
+    if (pref->subtitles_on_screenshots && screenshot_enabled) {
         proc->addArgument("-vf-add");
         proc->addArgument("screenshot");
     }
@@ -2902,47 +2863,16 @@ void Core::decAudioDelay()
     setAudioDelay(mset.audio_delay - 100);
 }
 
-void Core::incSubPos()
-{
-    qDebug("Core::incSubPos");
-
-    mset.sub_pos++;
-
-    if (mset.sub_pos > 100) mset.sub_pos = 100;
-
-    tellmp("sub_pos " + QString::number(mset.sub_pos) + " 1");
-}
-
-void Core::decSubPos()
-{
-    qDebug("Core::decSubPos");
-
-    mset.sub_pos--;
-
-    if (mset.sub_pos < 0) mset.sub_pos = 0;
-
-    tellmp("sub_pos " + QString::number(mset.sub_pos) + " 1");
-}
-
 void Core::changeSubScale(double value)
 {
     qDebug("Core::changeSubScale: %f", value);
 
     if (value < 0) value = 0;
 
-    if (pref->use_ass_subtitles) {
-        if (value != mset.sub_scale_ass) {
-            mset.sub_scale_ass = value;
-            tellmp("sub_scale " + QString::number(mset.sub_scale_ass) + " 1");
-            displayMessage(tr("Font scale: %1").arg(mset.sub_scale_ass));
-        }
-    } else {
-        // No ass
-        if (value != mset.sub_scale) {
-            mset.sub_scale = value;
-            tellmp("sub_scale " + QString::number(mset.sub_scale) + " 1");
-            displayMessage(tr("Font scale: %1").arg(mset.sub_scale));
-        }
+    if (value != mset.sub_scale_ass) {
+        mset.sub_scale_ass = value;
+        tellmp("sub_scale " + QString::number(mset.sub_scale_ass) + " 1");
+        displayMessage(tr("Font scale: %1").arg(mset.sub_scale_ass));
     }
 }
 
@@ -2950,22 +2880,14 @@ void Core::incSubScale()
 {
     double step = 0.20;
 
-    if (pref->use_ass_subtitles) {
-        changeSubScale(mset.sub_scale_ass + step);
-    } else {
-        changeSubScale(mset.sub_scale + step);
-    }
+    changeSubScale(mset.sub_scale_ass + step);
 }
 
 void Core::decSubScale()
 {
     double step = 0.20;
 
-    if (pref->use_ass_subtitles) {
-        changeSubScale(mset.sub_scale_ass - step);
-    } else {
-        changeSubScale(mset.sub_scale - step);
-    }
+    changeSubScale(mset.sub_scale_ass - step);
 }
 
 void Core::incSubStep()
@@ -3756,17 +3678,6 @@ void Core::changeSubUseMplayer2Defaults(bool b)
 
     if (pref->sub_use_mplayer2_defaults != b) {
         pref->sub_use_mplayer2_defaults = b;
-
-        if (proc->isRunning()) restartPlay();
-    }
-}
-
-void Core::changeUseAss(bool b)
-{
-    qDebug("Core::changeUseAss: %d", b);
-
-    if (pref->use_ass_subtitles != b) {
-        pref->use_ass_subtitles = b;
 
         if (proc->isRunning()) restartPlay();
     }

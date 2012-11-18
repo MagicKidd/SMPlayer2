@@ -138,21 +138,17 @@
        </item>
        <item>
         <widget class="QGroupBox" name="groupBox_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="title">
           <string>Screenshots</string>
          </property>
          <layout class="QGridLayout">
-          <item row="0" column="0" colspan="2">
-           <widget class="QCheckBox" name="use_screenshots_check">
-            <property name="text">
-             <string>&amp;Enable screenshots</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
+          <item row="0" column="0">
            <widget class="QLabel" name="screenshots_dir_label">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
             <property name="text">
              <string>&amp;Folder:</string>
@@ -165,10 +161,10 @@
             </property>
            </widget>
           </item>
-          <item row="1" column="1">
+          <item row="0" column="1">
            <widget class="FileChooser" name="screenshot_edit">
             <property name="enabled">
-             <bool>false</bool>
+             <bool>true</bool>
             </property>
            </widget>
           </item>
@@ -1086,7 +1082,6 @@ For translators: don't translate this text, it will be replaced with another one
   <tabstop>remember_all_check</tabstop>
   <tabstop>remember_time_check</tabstop>
   <tabstop>filesettings_method_combo</tabstop>
-  <tabstop>use_screenshots_check</tabstop>
   <tabstop>screenshot_edit</tabstop>
   <tabstop>close_on_finish_check</tabstop>
   <tabstop>pause_if_hidden_check</tabstop>
@@ -1199,38 +1194,6 @@ For translators: don't translate this text, it will be replaced with another one
     <hint type="destinationlabel">
      <x>181</x>
      <y>298</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>use_screenshots_check</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>screenshots_dir_label</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>229</x>
-     <y>256</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>43</x>
-     <y>288</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>use_screenshots_check</sender>
-   <signal>toggled(bool)</signal>
-   <receiver>screenshot_edit</receiver>
-   <slot>setEnabled(bool)</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>229</x>
-     <y>256</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>254</x>
-     <y>288</y>
     </hint>
    </hints>
   </connection>

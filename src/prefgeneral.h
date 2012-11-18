@@ -62,9 +62,6 @@ protected:
     void setMplayerPath(QString path);
     QString mplayerPath();
 
-    void setUseScreenshots(bool b);
-    bool useScreenshots();
-
     void setScreenshotDir(QString path);
     QString screenshotDir();
 

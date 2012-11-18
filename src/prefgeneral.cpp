@@ -150,7 +150,6 @@ void PrefGeneral::setData(Preferences *pref)
 {
     setMplayerPath(pref->mplayer_bin);
 
-    setUseScreenshots(pref->use_screenshot);
     setScreenshotDir(pref->screenshot_directory);
 
     QString vo = pref->vo;
@@ -228,7 +227,6 @@ void PrefGeneral::getData(Preferences *pref)
         //setDrivers( i.voList(), i.aoList() );
     }
 
-    TEST_AND_SET(pref->use_screenshot, useScreenshots());
     TEST_AND_SET(pref->screenshot_directory, screenshotDir());
     TEST_AND_SET(pref->vo, VO());
     TEST_AND_SET(pref->ao, AO());
@@ -384,16 +382,6 @@ void PrefGeneral::setMplayerPath(QString path)
 QString PrefGeneral::mplayerPath()
 {
     return mplayerbin_edit->text();
-}
-
-void PrefGeneral::setUseScreenshots(bool b)
-{
-    use_screenshots_check->setChecked(b);
-}
-
-bool PrefGeneral::useScreenshots()
-{
-    return use_screenshots_check->isChecked();
 }
 
 void PrefGeneral::setScreenshotDir(QString path)
@@ -867,10 +855,6 @@ void PrefGeneral::createHelp()
                  tr("<b>multiple ini files</b>: one ini file will be used for each played file. "
                     "Those ini files will be saved in the folder %1").arg(QString("<i>" + Paths::iniPath() + "/file_settings</i>")) + "</li></ul>" +
                  tr("The latter method could be faster if there is info for a lot of files."));
-
-    setWhatsThis(use_screenshots_check, tr("Enable screenshots"),
-                 tr("You can use this option to enable or disable the possibility to "
-                    "take screenshots."));
 
     setWhatsThis(screenshot_edit, tr("Screenshots folder"),
                  tr("Here you can specify a folder where the screenshots taken by "

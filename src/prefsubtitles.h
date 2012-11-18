@@ -48,21 +48,6 @@ protected:
     void setUseMplayer2Defaults(bool b);
     bool useMplayer2Defaults();
 
-    void setFontName(QString font_name);
-    QString fontName();
-
-    void setFontFile(QString font_file);
-    QString fontFile();
-
-    void setUseFontconfig(bool b);
-    bool useFontconfig();
-
-    void setFontAutoscale(int n);
-    int fontAutoscale();
-
-    void setFontTextscale(double n);
-    double fontTextscale();
-
     void setAssFontScale(double n);
     double assFontScale();
 
@@ -84,9 +69,6 @@ protected:
     void setSubPos(int pos);
     int subPos();
 
-    void setUseFontASS(bool v);
-    bool useFontASS();
-
     void setAssLineSpacing(int spacing);
     int assLineSpacing();
 
@@ -106,13 +88,8 @@ protected:
     void setSubtitlesOnScreenshots(bool b);
     bool subtitlesOnScreenshots();
 
-    void setFreetypeSupport(bool b);
-    bool freetypeSupport();
-
 protected slots:
-    void on_ass_subs_button_toggled(bool b);
     void on_ass_customize_button_clicked();
-    void on_freetype_check_toggled(bool b);
     void checkBorderStyleCombo(int index);
 
 protected:

@@ -812,13 +812,6 @@ void BaseGui::createActions()
     connect(subDelayAct, SIGNAL(triggered()),
             this, SLOT(showSubDelayDialog()));
 
-    decSubPosAct = new MyAction(Qt::Key_R, this, "dec_sub_pos");
-    connect(decSubPosAct, SIGNAL(triggered()),
-            core, SLOT(decSubPos()));
-    incSubPosAct = new MyAction(Qt::Key_T, this, "inc_sub_pos");
-    connect(incSubPosAct, SIGNAL(triggered()),
-            core, SLOT(incSubPos()));
-
     decSubScaleAct = new MyAction(Qt::SHIFT | Qt::Key_R, this, "dec_sub_scale");
     connect(decSubScaleAct, SIGNAL(triggered()),
             core, SLOT(decSubScale()));
@@ -838,10 +831,6 @@ void BaseGui::createActions()
     subUseMplayer2DefaultsAct = new MyAction(this, "sub_use_mplayer2_defaults");
     subUseMplayer2DefaultsAct->setCheckable(true);
     connect(subUseMplayer2DefaultsAct, SIGNAL(toggled(bool)), core, SLOT(changeSubUseMplayer2Defaults(bool)));
-
-    useAssAct = new MyAction(this, "use_ass_lib");
-    useAssAct->setCheckable(true);
-    connect(useAssAct, SIGNAL(toggled(bool)), core, SLOT(changeUseAss(bool)));
 
     useForcedSubsOnlyAct = new MyAction(this, "use_forced_subs_only");
     useForcedSubsOnlyAct->setCheckable(true);
@@ -1308,8 +1297,6 @@ void BaseGui::setActionsEnabled(bool b)
     decSubDelayAct->setEnabled(b);
     incSubDelayAct->setEnabled(b);
     subDelayAct->setEnabled(b);
-    decSubPosAct->setEnabled(b);
-    incSubPosAct->setEnabled(b);
     incSubStepAct->setEnabled(b);
     decSubStepAct->setEnabled(b);
     incSubScaleAct->setEnabled(b);
@@ -1382,8 +1369,7 @@ void BaseGui::enableActionsOnPlaying()
     playAct->setEnabled(false);
 
     // Screenshot option
-    bool screenshots_enabled = ((pref->use_screenshot) &&
-                                (!pref->screenshot_directory.isEmpty()) &&
+    bool screenshots_enabled = ((!pref->screenshot_directory.isEmpty()) &&
                                 (QFileInfo(pref->screenshot_directory).isDir()));
 
     screenshotAct->setEnabled(screenshots_enabled);
@@ -1653,8 +1639,6 @@ void BaseGui::retranslateStrings()
     decSubDelayAct->change(Images::icon("delay_down"), tr("Delay &-"));
     incSubDelayAct->change(Images::icon("delay_up"), tr("Delay &+"));
     subDelayAct->change(Images::icon("sub_delay"), tr("Se&t delay..."));
-    decSubPosAct->change(Images::icon("sub_up"), tr("&Up"));
-    incSubPosAct->change(Images::icon("sub_down"), tr("&Down"));
     decSubScaleAct->change(Images::icon("dec_sub_scale"), tr("S&ize -"));
     incSubScaleAct->change(Images::icon("inc_sub_scale"), tr("Si&ze +"));
     decSubStepAct->change(Images::icon("dec_sub_step"),
@@ -1662,7 +1646,6 @@ void BaseGui::retranslateStrings()
     incSubStepAct->change(Images::icon("inc_sub_step"),
                           tr("N&ext line in subtitles"));
     subUseMplayer2DefaultsAct->change(tr("Use mplayer2 defaults"));
-    useAssAct->change(Images::icon("use_ass_lib"), tr("Use SSA/&ASS library"));
     useForcedSubsOnlyAct->change(Images::icon("forced_subs"), tr("&Forced subtitles only"));
 
     subVisibilityAct->change(Images::icon("sub_visibility"), tr("Subtitle &visibility"));
@@ -2487,9 +2470,6 @@ void BaseGui::createMenus()
     subtitlesMenu->addSeparator();
     subtitlesMenu->addAction(subDelayAct);
     subtitlesMenu->addSeparator();
-    subtitlesMenu->addAction(decSubPosAct);
-    subtitlesMenu->addAction(incSubPosAct);
-    subtitlesMenu->addSeparator();
     subtitlesMenu->addAction(decSubScaleAct);
     subtitlesMenu->addAction(incSubScaleAct);
     subtitlesMenu->addSeparator();
@@ -2501,7 +2481,6 @@ void BaseGui::createMenus()
     subtitlesMenu->addAction(subVisibilityAct);
     subtitlesMenu->addSeparator();
     subtitlesMenu->addAction(subUseMplayer2DefaultsAct);
-    subtitlesMenu->addAction(useAssAct);
     subtitlesMenu->addSeparator(); //turbos
     subtitlesMenu->addAction(showFindSubtitlesDialogAct);
     subtitlesMenu->addAction(openUploadSubtitlesPageAct); //turbos
@@ -3465,10 +3444,6 @@ void BaseGui::updateWidgets()
     // Use mplayer2 defaults for subtitles
     subUseMplayer2DefaultsAct->setChecked(pref->sub_use_mplayer2_defaults);
 
-    // Use ass lib
-    useAssAct->setChecked(pref->use_ass_subtitles);
-    useAssAct->setEnabled(!pref->sub_use_mplayer2_defaults);
-
     // Forced subs
     useForcedSubsOnlyAct->setChecked(pref->use_forced_subs_only);
 
@@ -3484,8 +3459,6 @@ void BaseGui::updateWidgets()
     decSubDelayAct->setEnabled(e);
     incSubDelayAct->setEnabled(e);
     subDelayAct->setEnabled(e);
-    decSubPosAct->setEnabled(e);
-    incSubPosAct->setEnabled(e);
     decSubScaleAct->setEnabled(e);
     incSubScaleAct->setEnabled(e);
     decSubStepAct->setEnabled(e);

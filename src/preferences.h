@@ -73,7 +73,6 @@ public:
     QString vo; // video output
     QString ao; // audio output
 
-    bool use_screenshot;
     QString screenshot_directory;
 
     // SMPlayer2 will remember all media settings for all videos.
@@ -175,18 +174,13 @@ public:
        ********* */
 
     bool sub_use_mplayer2_defaults;
-    QString font_file;
-    QString font_name;
-    bool use_fontconfig;
     QString sub_encoding; // -subcp
     bool use_enca;
     QString enca_lang;
-    int font_autoscale; // -subfont-autoscale
     int subfuzziness;
     bool autoload_sub;
     bool prefer_external;
 
-    bool use_ass_subtitles;
     int ass_line_spacing;
 
     bool use_forced_subs_only;
@@ -195,19 +189,10 @@ public:
 
     bool subtitles_on_screenshots;
 
-    //! If true, loading an external subtitle will be done
-    //! by using the sub_load slave command. Otherwise
-    //! mplayer will be restarted.
-    bool fast_load_sub;
-
     // ASS styles
     AssStyles ass_styles;
     bool force_ass_styles; // Use ass styles even for ass files
     QString user_forced_ass_style; //!< Specifies a style defined by the user to be used with -ass-force-style
-
-    //! If false, options requiring freetype won't be used
-    bool freetype_support;
-
 
     /* ********
        Advanced
@@ -375,7 +360,6 @@ public:
        Initial values
        ************** */
 
-    double initial_sub_scale;
     double initial_sub_scale_ass;
     int initial_volume;
     int initial_contrast;
@@ -388,10 +372,6 @@ public:
 
     //! Default value for zoom (1.0 = no zoom)
     double initial_zoom_factor;
-
-    //! Default value for position of subtitles on screen
-    //! 100 = 100% at the bottom
-    int initial_sub_pos;
 
     bool initial_volnorm;
 
