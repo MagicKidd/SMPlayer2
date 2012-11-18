@@ -515,14 +515,6 @@ Vuoi sovrascriverlo?</translation>
         <translation>Ritardo &amp;+</translation>
     </message>
     <message>
-        <source>&amp;Up</source>
-        <translation>S&amp;ù</translation>
-    </message>
-    <message>
-        <source>&amp;Down</source>
-        <translation>&amp;Giù</translation>
-    </message>
-    <message>
         <source>&amp;Playlist</source>
         <translation>&amp;Lista di riproduzione</translation>
     </message>
@@ -906,10 +898,6 @@ Si aprirà ora il dialogo di configurazione, in modo che tu possa farlo.
         <translation>&amp;Nessun denoise</translation>
     </message>
     <message>
-        <source>Use SSA/&amp;ASS library</source>
-        <translation>&amp;Usa la libreria SSA/ASS</translation>
-    </message>
-    <message>
         <source>&amp;Toggle double size</source>
         <translation>&amp;Grandezza doppia</translation>
     </message>
@@ -1086,10 +1074,6 @@ Si aprirà ora il dialogo di configurazione, in modo che tu possa farlo.
     <message>
         <source>Zoom for &amp;2.35:1</source>
         <translation>Zoom per &amp;2,35:1</translation>
-    </message>
-    <message>
-        <source>Pre&amp;view...</source>
-        <translation>A&amp;nteprima...</translation>
     </message>
     <message>
         <source>&amp;Always</source>
@@ -3701,14 +3685,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
         <translation>Seleziona questa opzione  per usare il mixer software, invece di quello della scheda audio.</translation>
     </message>
     <message>
-        <source>Postprocessing quality</source>
-        <translation>Qualità di postprocessing</translation>
-    </message>
-    <message>
-        <source>Dynamically changes the level of postprocessing depending on the available spare CPU time. The number you specify will be the maximum level used. Usually you can use some big number.</source>
-        <translation>Cambia dinamicamente il livello di postprocessing a seconda del tempo di CPU disponibile. Il numero che specifichi sarà il massimo livello usato. Normalmente si possono usare numeri molto grandi.</translation>
-    </message>
-    <message>
         <source>&amp;Audio:</source>
         <translation>&amp;Audio:</translation>
     </message>
@@ -3719,10 +3695,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
     <message>
         <source>Su&amp;btitles:</source>
         <translation>S&amp;ottotitoli:</translation>
-    </message>
-    <message>
-        <source>&amp;Quality:</source>
-        <translation>&amp;Qualità:</translation>
     </message>
     <message>
         <source>Start videos in &amp;fullscreen</source>
@@ -3743,30 +3715,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
     <message>
         <source>&amp;AC3/DTS pass-through S/PDIF</source>
         <translation>&amp;AC3/DTS in uscita su S/PDIF</translation>
-    </message>
-    <message>
-        <source>Direct rendering</source>
-        <translation>Rendering diretto</translation>
-    </message>
-    <message>
-        <source>Double buffering</source>
-        <translation>Doppio buffering</translation>
-    </message>
-    <message>
-        <source>D&amp;irect rendering</source>
-        <translation>Rendering d&amp;iretto</translation>
-    </message>
-    <message>
-        <source>Dou&amp;ble buffering</source>
-        <translation>Doppio &amp;buffering</translation>
-    </message>
-    <message>
-        <source>Double buffering fixes flicker by storing two frames in memory, and displaying one while decoding another. If disabled it can affect OSD negatively, but often removes OSD flickering.</source>
-        <translation>Il doppio buffering previene lo sfarfallio salvando due frame in memoria e mostrandone uno mentre decodifica l&apos;altro. Se disabilitato può influenzare negativamente l&apos;OSD, ma spesso ne rimuove lo sfarfallio.</translation>
-    </message>
-    <message>
-        <source>&amp;Enable postprocessing by default</source>
-        <translation>Abilita il &amp;postprocessing</translation>
     </message>
     <message>
         <source>Volume &amp;normalization by default</source>
@@ -3805,10 +3753,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
         <translation>Pausa se minimizzato</translation>
     </message>
     <message>
-        <source>Enable postprocessing by default</source>
-        <translation>Abilita postprocessing per default</translation>
-    </message>
-    <message>
         <source>Max. Amplification</source>
         <translation>Massima amplificazione</translation>
     </message>
@@ -3827,10 +3771,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
     <message>
         <source>Sets the maximum amplification level in percent (default: 110). A value of 200 will allow you to adjust the volume up to a maximum of double the current level. With values below 100 the initial volume (which is 100%) will be above the maximum, which e.g. the OSD cannot display correctly.</source>
         <translation>Massimo livello di amplificazione in percentuale (predefinito:110). Un valore di 200 permetterà di alzare il volume fino a un massimo del doppio del livello corrente. Con valori inferiori a 100 il volume iniziale (che è al 100%) sarà sotto il massimo, per cui, ad esempio, l&apos;OSD non verrà mostrato correttamente.</translation>
-    </message>
-    <message>
-        <source>Postprocessing will be used by default on new opened files.</source>
-        <translation>Il postprocessing sarà usato nei nuovi file aperti.</translation>
     </message>
     <message>
         <source>Audio track</source>
@@ -3954,18 +3894,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Abilita &amp;equalizzatore audio</translation>
     </message>
     <message>
-        <source>Draw video using slices</source>
-        <translation>Disegno del video a strisce</translation>
-    </message>
-    <message>
-        <source>Enable/disable drawing video by 16-pixel height slices/bands. If disabled, the whole frame is drawn in a single run. May be faster or slower, depending on video card and available cache. It has effect only with libmpeg2 and libavcodec codecs.</source>
-        <translation>Abilita/disabilita il disegno del video a strisce/bande alte 16 pixel. Quando disabilitato l&apos;intero fotogramma viene disegnato tutto in una volta, ciò può essere più veloce o più lento, a secondo della scheda video e della cache disponibile. Ha effetto solo con i codec libmpeg2 e libavcodec.</translation>
-    </message>
-    <message>
-        <source>Dra&amp;w video using slices</source>
-        <translation>&amp;Disegno del video a strisce</translation>
-    </message>
-    <message>
         <source>&amp;Close when finished playback</source>
         <translation>&amp;Chiudi quando termina la riproduzione</translation>
     </message>
@@ -4082,20 +4010,8 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Se si seleziona questa opzione, SMPlayer2 ricorderà la precedente posizione del file quando verrà aperto nuovamente. Questa possibilità è disponibile solamente con i normali file (non con DVD, CD, URL...).</translation>
     </message>
     <message>
-        <source>If checked, turns on direct rendering (not supported by all codecs and video outputs)&lt;br&gt;&lt;b&gt;Warning:&lt;/b&gt; May cause OSD/SUB corruption!</source>
-        <translation>Se abilitata, attiva il rendering diretto(non supportato da tutti i codec e uscite video)&lt;br&gt;&lt;b&gt;Attenzione:&lt;/b&gt; Potrebbe causare la corruzione di OSD/SUB!</translation>
-    </message>
-    <message>
         <source>Requests the number of playback channels. mplayer2 asks the decoder to decode the audio into as many channels as specified. Then it is up to the decoder to fulfill the requirement. This is usually only important when playing videos with AC3 audio (like DVDs). In that case liba52 does the decoding by default and correctly downmixes the audio into the requested number of channels. &lt;b&gt;Note&lt;/b&gt;: This option is honored by codecs (AC3 only), filters (surround) and audio output drivers (OSS at least).</source>
         <translation>Il numero dei canali audio di riproduzione richiesti. mplayer2 chiede al decodificatore di decodificare l&apos;audio nel numero canali specificati. Quindi è il decodificatore che asseconda la richiesta. Solitamente questo è importante solo quando si riproducono video con audio AC3 (come i DVD). In quel caso liba52 gestisce la decodifica in modo predefinito e mixa l&apos;audio nel numero di canali richiesti. &lt;b&gt;Nota&lt;/b&gt;: Questa opzione viene rispettata da alcuni codec (solo AC3), filtri (surround) e driver di uscita audio (sicuramente OSS).</translation>
-    </message>
-    <message>
-        <source>Enable screenshots</source>
-        <translation>Abilita schermate</translation>
-    </message>
-    <message>
-        <source>You can use this option to enable or disable the possibility to take screenshots.</source>
-        <translation>Puoi usare questa opzione per abilitare o disabilitare la possibilità di catturare schermate.</translation>
     </message>
     <message>
         <source>Here you can specify a folder where the screenshots taken by SMPlayer2 will be stored. If the folder is not valid the screenshot feature will be disabled.</source>
@@ -4108,10 +4024,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     <message>
         <source>Screenshots</source>
         <translation>Schermata</translation>
-    </message>
-    <message>
-        <source>&amp;Enable screenshots</source>
-        <translation>Abilita sch&amp;ermata</translation>
     </message>
     <message>
         <source>&amp;Folder:</source>
@@ -5249,14 +5161,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Sottotitoli</translation>
     </message>
     <message>
-        <source>Choose a ttf file</source>
-        <translation>Scegli un file TTF</translation>
-    </message>
-    <message>
-        <source>Truetype Fonts</source>
-        <translation>Caratteri Truetype</translation>
-    </message>
-    <message>
         <source>&amp;Subtitles</source>
         <translation>&amp;Sottotitoli</translation>
     </message>
@@ -5281,22 +5185,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Tutti i sottotitoli della cartella</translation>
     </message>
     <message>
-        <source>Position</source>
-        <translation>Posizione</translation>
-    </message>
-    <message>
-        <source>0</source>
-        <translation>0</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>in alto</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>in basso</translation>
-    </message>
-    <message>
         <source>Include subtitles on screenshots</source>
         <translation>Includi sottotitoli nelle schermate</translation>
     </message>
@@ -5305,36 +5193,8 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Carattere</translation>
     </message>
     <message>
-        <source>Select the font which will be used for subtitles (and OSD):</source>
-        <translation>Selezionare il tipo di carattere che si userà per i sottotitoli (e OSD):</translation>
-    </message>
-    <message>
         <source>Size</source>
         <translation>Dimensione</translation>
-    </message>
-    <message>
-        <source>No autoscale</source>
-        <translation>Nessun ridimensionamento automatico</translation>
-    </message>
-    <message>
-        <source>Proportional to movie height</source>
-        <translation>Proporzionale all&apos;altezza del video</translation>
-    </message>
-    <message>
-        <source>Proportional to movie width</source>
-        <translation>Proporzionale alla larghezza del video</translation>
-    </message>
-    <message>
-        <source>Proportional to movie diagonal</source>
-        <translation>Proporzionale alla diagonale del video</translation>
-    </message>
-    <message>
-        <source>Subtitle position</source>
-        <translation>Posizione dei sottotitoli</translation>
-    </message>
-    <message>
-        <source>This option specifies the position of the subtitles over the video window. &lt;i&gt;100&lt;/i&gt; means the bottom, while &lt;i&gt;0&lt;/i&gt; means the top.</source>
-        <translation>Questa opzione specifica la posizione dei sottotitoli nella finestra. &lt;i&gt;100&lt;/i&gt; significa in basso, mentre  &lt;i&gt;0&lt;/i&gt; significa in alto.</translation>
     </message>
     <message>
         <source>Au&amp;toload subtitles files (*.srt, *.sub...):</source>
@@ -5349,44 +5209,12 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Co&amp;difica dei sottotitoli:</translation>
     </message>
     <message>
-        <source>Default &amp;position of the subtitles on screen</source>
-        <translation>Posizione &amp;predefinita dei sottotitoli</translation>
-    </message>
-    <message>
         <source>&amp;Include subtitles on screenshots</source>
         <translation>&amp;Includi sottotitoli nelle schermate</translation>
     </message>
     <message>
-        <source>&amp;TTF font:</source>
-        <translation>Font &amp;TTF: </translation>
-    </message>
-    <message>
-        <source>S&amp;ystem font:</source>
-        <translation>Font di s&amp;istema:</translation>
-    </message>
-    <message>
-        <source>A&amp;utoscale:</source>
-        <translation>Dimensione a&amp;utomatica:</translation>
-    </message>
-    <message>
         <source>Default subtitle encoding</source>
         <translation>Codifica dei sottotitoli</translation>
-    </message>
-    <message>
-        <source>TTF font</source>
-        <translation>Font TTF</translation>
-    </message>
-    <message>
-        <source>System font</source>
-        <translation>Font di sistema</translation>
-    </message>
-    <message>
-        <source>Here you can select a system font to be used for the subtitles and OSD. &lt;b&gt;Note:&lt;/b&gt; requires a mplayer2 with fontconfig support.</source>
-        <translation>Qui si possono selezionare i caratteri di sistema da usare per i sottotitoli e l&apos;OSD. &lt;b&gt;Nota:&lt;/b&gt; richiede mplayer2 con supporto a fontconfig.</translation>
-    </message>
-    <message>
-        <source>Autoscale</source>
-        <translation>Dimensione automatica</translation>
     </message>
     <message>
         <source>Text color</source>
@@ -5411,10 +5239,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     <message>
         <source>If there are one or more subtitle tracks available, one of them will be automatically selected, usually the first one, although if one of them matches the user&apos;s preferred language that one will be used instead.</source>
         <translation>Se ci sono una o più tracce di sottotitoli disponibili, una di esse sarà selezionata automaticamente, normalmente la prima. a meno che una di esse non corrisponda alla lingua preferita dall&apos;utente, nel qual caso sarà usata quella.</translation>
-    </message>
-    <message>
-        <source>Select the subtitle autoscaling method.</source>
-        <translation>Selezionare il metodo di ridimensionamento automatico dei sottotitoli.</translation>
     </message>
     <message>
         <source>Select the encoding which will be used for subtitle files by default.</source>
@@ -5443,10 +5267,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     <message>
         <source>Try to a&amp;utodetect for this language:</source>
         <translation>Cerca in a&amp;utomatico per questa lingua:</translation>
-    </message>
-    <message>
-        <source>Here you can select a ttf font to be used for the subtitles. Usually you&apos;ll find a lot of ttf fonts in %1</source>
-        <translation>Qui si possono selezionare i caratteri TTF da usare per i sottotitoli. Normalmente in %1 si trovano molti font</translation>
     </message>
     <message>
         <source>Outline</source>
@@ -5645,32 +5465,12 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Se lo stile bordo è impostato su &lt;i&gt;contorno&lt;/i&gt;, questa opzione specifica la profondità in pixel dell&apos;ombra dietro il testo.</translation>
     </message>
     <message>
-        <source>Enable normal subtitles</source>
-        <translation>Abilita sottotitoli normali</translation>
-    </message>
-    <message>
-        <source>Click this button to select the normal/traditional subtitles. This kind of subtitles can only display white subtitles.</source>
-        <translation>Clicca il bottone per scegliere i sottotitoli normali/tradizionali. Questo tipo di sottotitoli viene mostrato solo con il colore bianco.</translation>
-    </message>
-    <message>
-        <source>Enable SSA/ASS subtitles</source>
-        <translation>Abilita sottotitoli SSA/ASS</translation>
-    </message>
-    <message>
-        <source>Normal subtitles</source>
-        <translation>Normali sottotitoli</translation>
-    </message>
-    <message>
         <source>This option does NOT change the size of the subtitles in the current video. To do so, use the options &lt;i&gt;Size+&lt;/i&gt; and &lt;i&gt;Size-&lt;/i&gt; in the subtitles menu.</source>
         <translation>Questa opzione NON cambia la dimensione dei sottotitoli nel video corrente, per farlo, usa l&apos;opzione &lt;i&gt;Grandezza+&lt;/i&gt; e &lt;i&gt;Grandezza-&lt;/i&gt; del menù sottotitoli.</translation>
     </message>
     <message>
         <source>Default scale</source>
         <translation>Dimensione predefinita</translation>
-    </message>
-    <message>
-        <source>This option specifies the default font scale for normal subtitles which will be used for new opened files.</source>
-        <translation>Questa opzione specifica la dimensione di carattere predefinita per i sottotitoli normali e verrà usata per i nuovi file aperti.</translation>
     </message>
     <message>
         <source>SSA/ASS subtitles</source>
@@ -5693,40 +5493,12 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
         <translation>Ca&amp;ratteri e colori</translation>
     </message>
     <message>
-        <source>Enable &amp;normal subtitles</source>
-        <translation>Abilita &amp;normali sottotitoli</translation>
-    </message>
-    <message>
-        <source>Enable SSA/&amp;ASS subtitles</source>
-        <translation>&amp;Abilita sottotitoli SSA/ASS</translation>
-    </message>
-    <message>
-        <source>Default s&amp;cale:</source>
-        <translation>&amp;Dimensione predefinita:</translation>
-    </message>
-    <message>
         <source>Defa&amp;ult scale:</source>
         <translation>&amp;Dimensione predefinita:</translation>
     </message>
     <message>
         <source>&amp;Line spacing:</source>
         <translation>Inter&amp;linea:</translation>
-    </message>
-    <message>
-        <source>Click this button to enable the new SSA/ASS library. This allows to display subtitles with multiple colors, fonts...</source>
-        <translation>Premi il pulsante per abilitare la nuova libreria SSA/ASS. Permette di mostrare sottotitoli tramite l&apos;utilizzo di più colori, tipi di carattere...</translation>
-    </message>
-    <message>
-        <source>Freetype support</source>
-        <translation>Supporto Freetype</translation>
-    </message>
-    <message>
-        <source>You should normally not disable this option. Do it only if your mplayer2 is compiled without freetype support. &lt;b&gt;Disabling this option could make that subtitles won&apos;t work at all!&lt;/b&gt;</source>
-        <translation>Normalmente non dovresti disabilitare questa opzione, a meno che la tua versione di mplayer2 sia priva del supporto freetype. &lt;b&gt;Disabilitando questa opzione potresti rendere i sottotitoli totalmente non funzionanti!&lt;/b&gt;</translation>
-    </message>
-    <message>
-        <source>Freet&amp;ype support</source>
-        <translation>Supporto Freet&amp;ype</translation>
     </message>
     <message>
         <source>If this option is checked, the subtitles will appear in the screenshots. &lt;b&gt;Note:&lt;/b&gt; it may cause some troubles sometimes.</source>
@@ -5787,6 +5559,10 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     <message>
         <source>This prevents SMPlayer2 from overriding most subtitle-related options.</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished">Predefinito</translation>
     </message>
 </context>
 <context>
@@ -6193,216 +5969,6 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     <message>
         <source>The current values have been stored to be used as default.</source>
         <translation>I valori correnti sono stati salvati come predefiniti.</translation>
-    </message>
-</context>
-<context>
-    <name>VideoPreview</name>
-    <message>
-        <source>Video preview</source>
-        <translation>Anteprima video</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Annulla</translation>
-    </message>
-    <message>
-        <source>Generated by SMPlayer2</source>
-        <translation>Generato da SMPlayer2</translation>
-    </message>
-    <message>
-        <source>Creating thumbnails...</source>
-        <translation>Creazione miniature...</translation>
-    </message>
-    <message>
-        <source>Size: %1 MB</source>
-        <translation>Dimensione: %1 MB</translation>
-    </message>
-    <message>
-        <source>Length: %1</source>
-        <translation>Durata: %1</translation>
-    </message>
-    <message>
-        <source>Save file</source>
-        <translation>Salva file</translation>
-    </message>
-    <message>
-        <source>Error saving file</source>
-        <translation>Errore durante il salvataggio del file</translation>
-    </message>
-    <message>
-        <source>The file couldn&apos;t be saved</source>
-        <translation>Non è stato possibile salvare il file</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>Errore</translation>
-    </message>
-    <message>
-        <source>The following error has occurred while creating the thumbnails:</source>
-        <translation>L&apos;errore seguente si è verificato durante la creazione delle miniature:</translation>
-    </message>
-    <message>
-        <source>The temporary directory (%1) can&apos;t be created</source>
-        <translation>La directory temporanea (%1) non può essere creata</translation>
-    </message>
-    <message>
-        <source>The mplayer process didn&apos;t run</source>
-        <translation>Nessun processo mplayer</translation>
-    </message>
-    <message>
-        <source>Resolution: %1x%2</source>
-        <translation>Risoluzione: %1x%2</translation>
-    </message>
-    <message>
-        <source>Video format: %1</source>
-        <translation>Formato video: %1</translation>
-    </message>
-    <message>
-        <source>Frames per second: %1</source>
-        <translation>Fotogrammi al secondo: %1</translation>
-    </message>
-    <message>
-        <source>Aspect ratio: %1</source>
-        <translation>Rapporto d&apos;aspetto: %1</translation>
-    </message>
-    <message>
-        <source>The file %1 can&apos;t be loaded</source>
-        <translation>Il file %1 non può essere caricato</translation>
-    </message>
-    <message>
-        <source>No filename</source>
-        <translation>Nessun nome file</translation>
-    </message>
-    <message>
-        <source>The mplayer process didn&apos;t start while trying to get info about the video</source>
-        <translation>Il processo mplayer non è partito mentre si cercavano informazioni sul video</translation>
-    </message>
-    <message>
-        <source>The length of the video is 0</source>
-        <translation>La durata del video è 0</translation>
-    </message>
-    <message>
-        <source>The file %1 doesn&apos;t exist</source>
-        <translation>Il file %1 non esiste</translation>
-    </message>
-    <message>
-        <source>Images</source>
-        <translation>Immagini</translation>
-    </message>
-    <message>
-        <source>No info</source>
-        <translation>Nessuna informazione</translation>
-    </message>
-    <message>
-        <source>%1 kbps</source>
-        <translation>%1 kbps</translation>
-    </message>
-    <message>
-        <source>%1 Hz</source>
-        <translation>%1 Hz</translation>
-    </message>
-    <message>
-        <source>Video bitrate: %1</source>
-        <translation>Bitrate video: %1</translation>
-    </message>
-    <message>
-        <source>Audio bitrate: %1</source>
-        <translation>Bitrate audio: %1</translation>
-    </message>
-    <message>
-        <source>Audio rate: %1</source>
-        <translation>Bitrate audio: %1</translation>
-    </message>
-</context>
-<context>
-    <name>VideoPreviewConfigDialog</name>
-    <message>
-        <source>Default</source>
-        <translation>Predefinito</translation>
-    </message>
-    <message>
-        <source>Video Preview</source>
-        <translation>Anteprima video</translation>
-    </message>
-    <message>
-        <source>&amp;File:</source>
-        <translation>&amp;File:</translation>
-    </message>
-    <message>
-        <source>&amp;Columns:</source>
-        <translation>&amp;Colonne:</translation>
-    </message>
-    <message>
-        <source>&amp;Rows:</source>
-        <translation>&amp;Righe:</translation>
-    </message>
-    <message>
-        <source>&amp;Aspect ratio:</source>
-        <translation>Rapporto d&apos;&amp;aspetto:</translation>
-    </message>
-    <message>
-        <source>&amp;Seconds to skip at the beginnning:</source>
-        <translation>&amp;Secondi da saltare all&apos;inizio:</translation>
-    </message>
-    <message>
-        <source>&amp;Maximum width:</source>
-        <translation>&amp;Larghezza massima:</translation>
-    </message>
-    <message>
-        <source>The preview will be created for the video you specify here.</source>
-        <translation>L&apos;anteprima sarà creata per il video qui specificato.</translation>
-    </message>
-    <message>
-        <source>The thumbnails will be arranged on a table.</source>
-        <translation>Le miniature saranno disposte su una tabella.</translation>
-    </message>
-    <message>
-        <source>This option specifies the number of columns of the table.</source>
-        <translation>Questa opzione specifica il numero di colonne della tabella.</translation>
-    </message>
-    <message>
-        <source>This option specifies the number of rows of the table.</source>
-        <translation>Questa opzione specifica il numero di righe della tabella.</translation>
-    </message>
-    <message>
-        <source>If you check this option, the playing time will be displayed at the bottom of each thumbnail.</source>
-        <translation>Se si abilita questa opzione, il tempo di riproduzione sarà mostrato sul fondo di ogni miniatura.</translation>
-    </message>
-    <message>
-        <source>If the aspect ratio of the video is wrong, you can specify a different one here.</source>
-        <translation>Se il rapporto d&apos;aspetto del video è errato, se ne può specificare un altro qui.</translation>
-    </message>
-    <message>
-        <source>Usually the first frames are black, so it&apos;s a good idea to skip some seconds at the beginning of the video. This option allows to specify how many seconds will be skipped.</source>
-        <translation>In genere i primi fotogrammi sono neri, così è una buona idea saltare alcuni secondi all&apos;inizio del video. L&apos;opzione permette di specificare quanti secondi verranno saltati.</translation>
-    </message>
-    <message>
-        <source>This option specifies the maximum width in pixels that the generated preview image will have.</source>
-        <translation>Questa opzione specifica la massima larghezza in pixel che l&apos;immagine d&apos;anteprima generata avrà.</translation>
-    </message>
-    <message>
-        <source>Some frames will be extracted from the video in order to create the preview. Here you can choose the image format for the extracted frames. PNG may give better quality.</source>
-        <translation>Alcuni fotogrammi saranno estratti dal video per creare l&apos;anteprima. Il formato immagine per i fotogrammi estratti può essere scelto qui. PNG può fornire miglior qualità.</translation>
-    </message>
-    <message>
-        <source>Add playing &amp;time to thumbnails</source>
-        <translation>Aggiungi &amp;tempo di riproduzione nelle miniature</translation>
-    </message>
-    <message>
-        <source>&amp;Extract frames as</source>
-        <translation>&amp;Estrai fotogrammi come</translation>
-    </message>
-    <message>
-        <source>Enter here the DVD device or a folder with a DVD image.</source>
-        <translation>Inserire qui il dispositivo DVD o una cartella con l&apos;immagine del DVD.</translation>
-    </message>
-    <message>
-        <source>&amp;DVD device:</source>
-        <translation>&amp;Dispositivo DVD:</translation>
-    </message>
-    <message>
-        <source>Remember folder used to &amp;save the preview</source>
-        <translation>Ricorda la cartella usata per &amp;salvare l&apos;anteprima</translation>
     </message>
 </context>
 <context>
