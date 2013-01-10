@@ -3244,10 +3244,6 @@ Esempio: resample=44100:0:0,volnorm</translation>
         <translation>Abilita il registro di &amp;mplayer2</translation>
     </message>
     <message>
-        <source>Options for MP&amp;layer</source>
-        <translation>Opzioni per MP&amp;layer</translation>
-    </message>
-    <message>
         <source>Autosave mplayer2 log</source>
         <translation>Salva automaticamente il registro di mplayer2 su file</translation>
     </message>
@@ -3449,6 +3445,10 @@ Esempio: resample=44100:0:0,volnorm</translation>
     </message>
     <message>
         <source>If this option is enabled, information from tags will be shown in window title. Otherwise only the filename will be shown.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Options for mp&amp;layer2</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4139,6 +4139,18 @@ For translators: don&apos;t translate this text, it will be replaced with anothe
     </message>
     <message>
         <source>Allows to change the playback speed without altering pitch. </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gapless audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Try to play consecutive files with no silence or disruptionat the point of file change.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;b&gt;Note:&lt;/b&gt; The audio device is opened using parameterschosen according to the first file played and is then keptopen for gapless playback. This means that if the first filefor example has a low samplerate then the following files mayget resampled to the same low samplerate, resulting in reducedsound quality.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
