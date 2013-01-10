@@ -182,6 +182,7 @@ void PrefGeneral::setData(Preferences *pref)
     setGlobalVolume(pref->global_volume);
     setSoftVol(pref->use_soft_vol);
     setAc3DTSPassthrough(pref->use_hwac3);
+    setGaplessAudio(pref->gapless_audio);
     setInitialVolNorm(pref->initial_volnorm);
     setAmplification(pref->softvol_max);
     setInitialDeinterlace(pref->initial_deinterlace);
@@ -256,6 +257,7 @@ void PrefGeneral::getData(Preferences *pref)
     pref->global_volume = globalVolume();
     TEST_AND_SET(pref->use_audio_equalizer, useAudioEqualizer());
     TEST_AND_SET(pref->use_hwac3, Ac3DTSPassthrough());
+    TEST_AND_SET(pref->gapless_audio, GaplessAudio());
     pref->initial_volnorm = initialVolNorm();
     TEST_AND_SET(pref->softvol_max, amplification());
     pref->initial_deinterlace = initialDeinterlace();
@@ -642,6 +644,16 @@ bool PrefGeneral::Ac3DTSPassthrough()
     return hwac3_check->isChecked();
 }
 
+void PrefGeneral::setGaplessAudio(bool b)
+{
+    gapless_audio_check->setChecked(b);
+}
+
+bool PrefGeneral::GaplessAudio()
+{
+    return gapless_audio_check->isChecked();
+}
+
 void PrefGeneral::setInitialVolNorm(bool b)
 {
     volnorm_check->setChecked(b);
@@ -959,6 +971,16 @@ void PrefGeneral::createHelp()
                  tr("Uses hardware AC3 passthrough.") + "<br>" +
                  tr("<b>Note:</b> none of the audio filters will be used when this "
                     "option is enabled."));
+
+    setWhatsThis(gapless_audio_check, tr("Gapless audio"),
+                 tr("Try to play consecutive files with no silence or disruption"
+                    "at the point of file change.") + "<br>" +
+                 tr("<b>Note:</b> The audio device is opened using parameters"
+                    "chosen according to the first file played and is then kept"
+                    "open for gapless playback. This means that if the first file"
+                    "for example has a low samplerate then the following files may"
+                    "get resampled to the same low samplerate, resulting in reduced"
+                    "sound quality."));
 
     setWhatsThis(channels_combo, tr("Channels by default"),
                  tr("Requests the number of playback channels. mplayer2 "

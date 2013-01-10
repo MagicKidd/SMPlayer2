@@ -143,6 +143,9 @@ protected:
     void setAc3DTSPassthrough(bool b);
     bool Ac3DTSPassthrough();
 
+    void setGaplessAudio(bool b);
+    bool GaplessAudio();
+
     void setInitialVolNorm(bool b);
     bool initialVolNorm();
 

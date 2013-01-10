@@ -110,6 +110,7 @@ public:
     int softvol_max;
     OptionState use_scaletempo;
     bool use_hwac3; // -afm hwac3
+    bool gapless_audio;
     bool use_audio_equalizer;
 
     // Global volume options

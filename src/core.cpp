@@ -1372,6 +1372,9 @@ void Core::startMplayer(QString file, double seek)
         proc->addArgument("hwac3");
     }
 
+    if (pref->gapless_audio) {
+        proc->addArgument("-gapless-audio");
+    }
 
     QString lavdopts;
 

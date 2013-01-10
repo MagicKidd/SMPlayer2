@@ -531,6 +531,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="gapless_audio_check">
+         <property name="text">
+          <string>Gapless audio</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <layout class="QHBoxLayout">
          <property name="spacing">
           <number>6</number>
