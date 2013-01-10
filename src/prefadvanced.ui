@@ -249,8 +249,8 @@
         </layout>
        </item>
        <item>
-        <widget class="QCheckBox" name="show_tag_in_title_check" >
-         <property name="text" >
+        <widget class="QCheckBox" name="show_tag_in_title_check">
+         <property name="text">
           <string>Show tag in&amp;fo in window title</string>
          </property>
         </widget>
@@ -275,7 +275,7 @@
      </widget>
      <widget class="QWidget" name="tab2">
       <attribute name="title">
-       <string>Options for MP&amp;layer</string>
+       <string>Options for mp&amp;layer2</string>
       </attribute>
       <layout class="QVBoxLayout">
        <property name="spacing">
