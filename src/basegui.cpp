@@ -1443,8 +1443,6 @@ void BaseGui::enableActionsOnPlaying()
 
     // Disable video filters if using vdpau
     if ((pref->vdpau.disable_video_filters) && (pref->vo.startsWith("vdpau"))) {
-        screenshotAct->setEnabled(false);
-        screenshotsAct->setEnabled(false);
         flipAct->setEnabled(false);
         mirrorAct->setEnabled(false);
         postProcessingAct->setEnabled(false);
